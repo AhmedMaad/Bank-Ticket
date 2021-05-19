@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">App Name</string>
+    <string name="app_name">Bank Ticket</string>
 
     <string name="login">Login</string>
     <string name="Email"> Email </string>
@@ -25,7 +25,7 @@
 
     <string name="reservation"> Reserve Ticket </string>
     <string name="viewticket"> View Ticket </string>
-    <string name="nearstbranch">  Nearst Branches </string>
+    <string name="nearstbranch">  Nearest Branches </string>
     <string name="department">  Select Department : </string>
     <string name="branch"> Select Branch : </string>
     <string name="ticketnumber">Ticket Number : </string>
@@ -35,6 +35,8 @@
     <string name="waitingtime"> Waitig Time : </string>
     <string name="branchlocation">Branch Location : </string>
 
-
+    <string name="passwords_not_match">Passwords don\'t match</string>
+    <string name="failedadduser">Failed to add user</string>
+    <string name="useradded">User added successfully</string>
 
 </resources>

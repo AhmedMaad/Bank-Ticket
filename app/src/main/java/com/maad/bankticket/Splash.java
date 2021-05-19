@@ -19,7 +19,7 @@ public class Splash extends AppCompatActivity {
                     public void run() {
                         moveToLogin();
                     }
-                }, 3000);
+                }, 500);
     }
 
     public void moveToLogin() {

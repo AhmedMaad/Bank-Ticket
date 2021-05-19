@@ -7,7 +7,6 @@
     tools:context=".Splash"
     android:background="@color/colorPrimary">
 
-
     <TextView
         android:id="@+id/login"
         android:layout_width="wrap_content"

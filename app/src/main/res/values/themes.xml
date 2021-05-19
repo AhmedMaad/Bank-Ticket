@@ -33,7 +33,7 @@
 
 
     <style name="signup">
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColorHint">@color/colorPrimary</item>
         <item name="android:padding">10dp</item>
