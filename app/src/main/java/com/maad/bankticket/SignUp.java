@@ -90,7 +90,7 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void addUserDataToFirestore() {
-        Client client = new Client(fNameText, lNameText, emailText, passwordText);
+        Client client = new Client(fNameText, lNameText, emailText);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db
                 .collection("clients")
@@ -99,7 +99,7 @@ public class SignUp extends AppCompatActivity {
                 .addOnSuccessListener(documentReference -> {
                     progress.setVisibility(View.GONE);
                     Toast.makeText(SignUp.this, R.string.useradded, Toast.LENGTH_SHORT).show();
-                    //navigate to main activity
+                    //intent to home activity
                     Intent i = new Intent(this, Home.class);
                     startActivity(i);
                     finish();

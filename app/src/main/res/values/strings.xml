@@ -38,5 +38,7 @@
     <string name="passwords_not_match">Passwords don\'t match</string>
     <string name="failedadduser">Failed to add user</string>
     <string name="useradded">User added successfully</string>
+    <string name="missingfields">Missing Fields</string>
+    <string name="wrongfields">Wrong email or password</string>
 
 </resources>
