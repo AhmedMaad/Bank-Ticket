@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Language">
+
+    <TextView
+        android:id="@+id/Language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:text="@string/selectlang"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <Button
+        android:id="@+id/eng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Language"
+        android:text="@string/englang"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/colorwhite"
+        android:layout_marginTop="50dp"
+        android:textSize="25sp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/ovalbtn"
+
+
+
+        />
+    <Button
+        android:id="@+id/login2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/eng"
+        android:text="@string/arblang"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/colorwhite"
+        android:layout_marginTop="50dp"
+        android:textSize="25sp"
+        android:paddingStart="38dp"
+        android:paddingEnd="38dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/ovalbtn"
+
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

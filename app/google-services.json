@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "578956417157",
+    "project_id": "bank-ticket",
+    "storage_bucket": "bank-ticket.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578956417157:android:8942e831baa4a1e3f3f1ec",
+        "android_client_info": {
+          "package_name": "com.maad.bankticket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578956417157-es9t0vdcqk5j1rhql1qdmscoci4ce34m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAumwBpJX-XEzokvjaPN_Rtf8_QzBD63XU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578956417157-es9t0vdcqk5j1rhql1qdmscoci4ce34m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

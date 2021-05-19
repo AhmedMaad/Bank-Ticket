@@ -1,0 +1,2 @@
+rootProject.name = "Bank Ticket"
+include ':app'

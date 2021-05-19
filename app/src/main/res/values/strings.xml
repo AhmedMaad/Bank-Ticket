@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">App Name</string>
+
+    <string name="login">Login</string>
+    <string name="Email"> Email </string>
+    <string name="password"> Password </string>
+    <string name="forgtpass">Forget Password? </string>
+    <string name="newuser">New user? Sign Up </string>
+    <string name="selectlang">Select Language </string>
+    <string name="englang">English</string>
+    <string name="arblang">Arabic </string>
+    <string name="enter">Enter </string>
+    <string name="passemail">Enter your E-mail </string>
+    <string name="signup">Sign Up </string>
+    <string name="firstname"> First Name </string>
+    <string name="lastname"> Last Name </string>
+
+    <string name="confirmpass">Confirm Password </string>
+    <string name="existuser"> Existing user? Login </string>
+    <string name="back"> Back </string>
+    <string name="resetpass"> Reset Password </string>
+    <string name="setting"> Setting </string>
+    <string name="Changelanguage"> Change Language </string>
+    <string name="logout">  Log Out </string>
+
+    <string name="reservation"> Reserve Ticket </string>
+    <string name="viewticket"> View Ticket </string>
+    <string name="nearstbranch">  Nearst Branches </string>
+    <string name="department">  Select Department : </string>
+    <string name="branch"> Select Branch : </string>
+    <string name="ticketnumber">Ticket Number : </string>
+
+    <string name="turnnumber">Turn Number : </string>
+    <string name="counternumber">Counter Number : </string>
+    <string name="waitingtime"> Waitig Time : </string>
+    <string name="branchlocation">Branch Location : </string>
+
+
+
+</resources>
