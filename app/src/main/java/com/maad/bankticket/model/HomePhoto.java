@@ -6,10 +6,8 @@ public class HomePhoto {
     private int image;
 
     public HomePhoto(String title, int image) {
-
         this.title = title;
         this.image = image;
-
     }
 
     public String getTitle() {
@@ -20,11 +18,4 @@ public class HomePhoto {
         return image;
     }
 
-    public void setImage(int image) {
-        this.image = image;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 }

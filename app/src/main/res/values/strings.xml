@@ -40,5 +40,6 @@
     <string name="useradded">User added successfully</string>
     <string name="missingfields">Missing Fields</string>
     <string name="wrongfields">Wrong email or password</string>
+    <string name="emailsent">Email sent</string>
 
 </resources>

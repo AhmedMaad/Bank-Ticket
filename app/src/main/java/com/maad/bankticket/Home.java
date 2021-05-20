@@ -28,7 +28,7 @@ public class Home extends AppCompatActivity {
         image = findViewById(R.id.image);
         recyclerView = findViewById(R.id.recycle_view);
         data = creareAapterData();
-        adapter = new HomePhotoAdapter(data);
+        adapter = new HomePhotoAdapter(this, data);
         recyclerView.setAdapter(adapter);
     }
 
