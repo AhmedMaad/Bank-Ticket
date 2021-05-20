@@ -11,14 +11,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class TakeTurn extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    String[] department = {"Customer Services", "Teller", "Reception"};
-    String[] branch = {"Dokii", "Maadi", "Helwan"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_take_turn);
-        Spinner spin =  findViewById(R.id.spinner1);
+
+        String[] department =
+        {getString(R.string.customerservice), getString(R.string.teller)
+                , getString(R.string.reception)};
+
+        String[] branch =
+                {getString(R.string.dokki), getString(R.string.maadi)
+                        , getString(R.string.helwan)};
+
+        Spinner spin = findViewById(R.id.spinner1);
         Spinner spin2 = findViewById(R.id.spinner2);
 
         ArrayAdapter<String> adapter =

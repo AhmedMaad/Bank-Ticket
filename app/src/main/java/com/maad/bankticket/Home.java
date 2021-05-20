@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Home extends AppCompatActivity {
+
     TextView title;
     ImageView image;
     RecyclerView recyclerView;
@@ -27,18 +28,18 @@ public class Home extends AppCompatActivity {
         title = findViewById(R.id.title);
         image = findViewById(R.id.image);
         recyclerView = findViewById(R.id.recycle_view);
-        data = creareAapterData();
+        data = createAdapterData();
         adapter = new HomePhotoAdapter(this, data);
         recyclerView.setAdapter(adapter);
     }
 
 
-    private List<HomePhoto> creareAapterData() {
+    private List<HomePhoto> createAdapterData() {
         List<HomePhoto> data = new ArrayList<>();
-        data.add(new HomePhoto( "Take Turn", R.drawable.taketurn));
-        data.add(new HomePhoto("View Ticket", R.drawable.ticket));
-        data.add(new HomePhoto("Nearest Branch", R.drawable.nearstbranch));
-        data.add(new HomePhoto("Setting", R.drawable.setting));
+        data.add(new HomePhoto(getString(R.string.taketurn), R.drawable.taketurn));
+        data.add(new HomePhoto(getString(R.string.viewticket), R.drawable.ticket));
+        data.add(new HomePhoto(getString(R.string.neareastbranch), R.drawable.nearstbranch));
+        data.add(new HomePhoto(getString(R.string.settings), R.drawable.setting));
         return data;
     }
 

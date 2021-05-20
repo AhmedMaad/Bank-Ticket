@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".NearestBranch"
-            android:label="@string/nearstbranch" />
+            android:label="@string/neareastbranch" />
         <activity
             android:name=".Ticket"
             android:label="Ticket" />
@@ -19,7 +19,7 @@
             android:name=".TakeTurn"
             android:label="Take Turn" />
         <activity
-            android:name=".Home"
+            android:name=".Splash"
             android:label="Home" />
         <activity
             android:name=".Language"
@@ -31,7 +31,7 @@
         <activity
             android:name=".Login"
             android:label="@string/login" />
-        <activity android:name=".Splash">
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
