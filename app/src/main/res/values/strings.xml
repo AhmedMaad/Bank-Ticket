@@ -56,4 +56,6 @@
     <string name="failedlocation">Failed to get location</string>
     <string name="acceptpermission">Accept the permission to get nearest branch</string>
 
+    <string name="ticketadded">Ticket Added Successfully</string>
+
 </resources>
