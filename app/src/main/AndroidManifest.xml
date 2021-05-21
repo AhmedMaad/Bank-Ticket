@@ -21,7 +21,7 @@
         <activity
             android:name=".TakeTurn" />
         <activity
-            android:name=".Home" />
+            android:name=".Splash" />
         <activity
             android:name=".Settings" />
         <activity
@@ -30,7 +30,7 @@
             android:name=".SignUp" />
         <activity
             android:name=".Login" />
-        <activity android:name=".Splash">
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

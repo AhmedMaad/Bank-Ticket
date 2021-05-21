@@ -19,6 +19,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.rpc.Help;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -84,6 +85,9 @@ public class TakeTurn extends ParentActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        //TODO: DELETE THIS LINE
+        Helper.USER_ID = "7dYryy0KZ2aqjekFZvBrF2qLJSs2";
 
         //Prevent the user from taking another turn if he has an existing ticket
         db
@@ -168,11 +172,11 @@ public class TakeTurn extends ParentActivity {
         int waitTime = turnNumber * 5;
         int counterNumber = ticketNumber - turnNumber;
 
+        //Add time of request (e.g. 20:15)
         Calendar now = Calendar.getInstance();
         int hour = now.get(Calendar.HOUR_OF_DAY);
         int minute = now.get(Calendar.MINUTE);
-        int second = now.get(Calendar.SECOND);
-        String requestTime = hour + ":" + minute + ":" + second;
+        String requestTime = hour + ":" + minute;
 
         TicketModel ticket =
                 new TicketModel(chosenBranch, chosenDepartment, ticketNumber

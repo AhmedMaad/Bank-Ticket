@@ -70,5 +70,6 @@
 
     <string name="close_app">سيتم إعادة تشغيل التطبيق لتغيير اللغة</string>
     <string name="finish">إنهاء</string>
+    <string name="turnpassed">فاتك دورك, احجز تذكرة جديدة</string>
 
 </resources>
