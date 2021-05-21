@@ -1,6 +1,7 @@
 package com.maad.bankticket;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,5 +21,9 @@ public class Ticket extends AppCompatActivity {
             map.put("ticket", String.valueOf(ticketNumber));*/
 
 
+    }
+
+    public void back(View view) {
+        onBackPressed();
     }
 }

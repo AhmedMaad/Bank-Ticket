@@ -2,12 +2,6 @@ package com.maad.bankticket;
 
 public class TicketModel {
 
-    //chosen branch
-    //chosen department
-    //ticket number "read from firebase then increment counter by one (Format: 035)"
-    //your turn after X customers "read from firebase how many document tickets"
-    //estimated wait time "number of documents * 5 min"
-    //counter number "ticket number - turn"
     private String branch;
     private String department;
     private int ticketNumber;

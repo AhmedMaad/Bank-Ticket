@@ -166,12 +166,11 @@ public class TakeTurn extends AppCompatActivity {
         // Add a new document with a generated ID
         db
                 .collection("tickets")
-                .add(ticket)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                .document(Helper.USER_ID)
+                .set(ticket)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        //tell user that ticket is added and navigate to view ticket
-                        //and finish this activity
+                    public void onSuccess(Void unused) {
                         Toast.makeText(TakeTurn.this, R.string.ticketadded
                                 , Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(TakeTurn.this, Ticket.class);
@@ -185,3 +184,6 @@ public class TakeTurn extends AppCompatActivity {
 
 //Admin application will read oldest document, and all tickets will update their data
 //depending on that old document...
+
+//(optional) user cannot add another ticket while there is a document with his ticket
+//Add the user id to the ticket document

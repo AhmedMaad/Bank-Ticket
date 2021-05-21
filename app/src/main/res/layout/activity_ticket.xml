@@ -1,82 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ticketbg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".Ticket">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/ticketnumber"
+        android:textColor="@color/colorwhite"
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/ticketnumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/ticketnumber"
+        android:layout_marginTop="8dp"
         android:textColor="@color/colorwhite"
         android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:text="005" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/turnnumber"
+        android:textColor="@color/colorwhite"
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/turnnumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/turnnumber"
         android:textColor="@color/colorwhite"
         android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ticketnumber" />
+        tools:text="4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/counternumber"
+        android:textColor="@color/colorwhite"
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/counternumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/counternumber"
         android:textColor="@color/colorwhite"
-
         android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/turnnumber" />
+        tools:text="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/waitingtime"
+        android:textColor="@color/colorwhite"
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/waitingtime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/waitingtime"
         android:textColor="@color/colorwhite"
-
         android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/counternumber" />
+        tools:text="05:23" />
 
     <ImageView
-        android:id="@+id/branchphoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/location"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/waitingtime" />
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/location" />
 
     <TextView
-        android:id="@+id/back"
+        android:id="@+id/branch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:textColor="@color/colorwhite"
+        android:textSize="35sp"
+        tools:text="Helwan" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:onClick="back"
         android:text="@string/back"
         android:textColor="@color/colorwhite"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/branchphoto" />
+        android:textSize="20sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
