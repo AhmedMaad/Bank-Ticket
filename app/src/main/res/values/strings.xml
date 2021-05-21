@@ -31,8 +31,9 @@
 
     <string name="turnnumber">Turn Number : </string>
     <string name="counternumber">Counter Number : </string>
-    <string name="waitingtime"> Waitig Time : </string>
+    <string name="waitingtime"> Waiting Time : </string>
     <string name="branchlocation">Branch Location : </string>
+    <string name="chosendepartment">Department : </string>
 
     <string name="passwords_not_match">Passwords don\'t match</string>
     <string name="failedadduser">Failed to add user</string>

@@ -21,7 +21,6 @@
         android:id="@+id/ticketnumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:textColor="@color/colorwhite"
         android:textSize="35sp"
         tools:text="005" />
@@ -29,7 +28,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/turnnumber"
         android:textColor="@color/colorwhite"
         android:textSize="28sp" />
@@ -45,7 +44,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/counternumber"
         android:textColor="@color/colorwhite"
         android:textSize="28sp" />
@@ -61,7 +60,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/waitingtime"
         android:textColor="@color/colorwhite"
         android:textSize="28sp" />
@@ -74,10 +73,26 @@
         android:textSize="35sp"
         tools:text="05:23" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/chosendepartment"
+        android:textColor="@color/colorwhite"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/department"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorwhite"
+        android:textSize="35sp"
+        tools:text="X" />
+
     <ImageView
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/location" />
 
     <TextView
@@ -91,7 +106,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:onClick="back"
         android:text="@string/back"
         android:textColor="@color/colorwhite"
