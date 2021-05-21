@@ -96,6 +96,12 @@ public class Ticket extends ParentActivity {
 
             }.start();
         }
+        else{
+            TextView tv = findViewById(R.id.wait);
+            tv.setVisibility(View.GONE);
+            waitingtime.setVisibility(View.GONE);
+        }
+
 
     }
 
@@ -113,7 +119,7 @@ public class Ticket extends ParentActivity {
                                 .setPositiveButton(R.string.finish, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        deleteTicket();
+                                        finishAffinity();
                                     }
                                 })
                                 .setCancelable(false)
