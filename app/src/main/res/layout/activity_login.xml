@@ -28,6 +28,7 @@
         android:textColorHint="@color/colorPrimary" />
 
     <EditText
+        android:gravity="start"
         android:id="@+id/passwordlog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,6 +37,7 @@
         android:layout_marginEnd="20dp"
         android:background="@drawable/oval"
         android:hint="@string/password"
+        android:textAlignment="viewStart"
         android:inputType="textPassword"
         android:padding="10dp"
         android:textColorHint="@color/colorPrimary" />

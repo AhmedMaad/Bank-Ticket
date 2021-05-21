@@ -8,7 +8,7 @@
     <string name="newuser">New user? Sign Up </string>
     <string name="selectlang">Select Language </string>
     <string name="englang">English</string>
-    <string name="arblang">Arabic </string>
+    <string name="arblang">العربية </string>
     <string name="enter">Enter </string>
     <string name="passemail">Enter your E-mail </string>
     <string name="signup">Sign Up </string>
@@ -58,5 +58,17 @@
     <string name="acceptpermission">Accept the permission to get nearest branch</string>
 
     <string name="ticketadded">Ticket Added Successfully</string>
+    <string name="alreadyhaveticket">You already have a ticket</string>
+    <string name="thanks">Thanks for using our Bank Ticket App</string>
+
+    <string name="alerttitle">Warning!</string>
+    <string name="alertmessage">If you leave now you will to request a new ticket</string>
+    <string name="proceed">proceed</string>
+    <string name="cancel">cancel</string>
+    <string name="home">Home</string>
+    <string name="ticket">Ticket</string>
+
+    <string name="close_app">Application will restart to change language</string>
+    <string name="finish">Finish</string>
 
 </resources>

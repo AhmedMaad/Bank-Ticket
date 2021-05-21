@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">تذكرة البنك</string>
+
+    <string name="login">تسجيل دخول</string>
+    <string name="Email"> البريد الإلكتروني </string>
+    <string name="password"> كلمة السر </string>
+    <string name="forgtpass">نسيت كلمة السر؟ </string>
+    <string name="newuser">مستخدم جديد؟ تسجيل </string>
+    <string name="selectlang">اختر اللغة </string>
+    <string name="englang">English</string>
+    <string name="arblang">العربية </string>
+    <string name="enter">ادخال </string>
+    <string name="passemail">اكتب البريد الاكتروني </string>
+    <string name="signup">اشتراك </string>
+    <string name="firstname"> الاسم الأول </string>
+    <string name="lastname"> الاسم الأخير </string>
+
+    <string name="confirmpass">تأكيد كلمة السر </string>
+    <string name="existuser"> مستخدم موجود؟ تسجيل الدخول </string>
+    <string name="back"> رجوع </string>
+    <string name="resetpass"> إعادة تعيين كلمة المرور </string>
+    <string name="Changelanguage"> تغيير اللغة </string>
+    <string name="logout"> تسجيل خروج </string>
+
+    <string name="reservation"> إحجز تذكرة </string>
+    <string name="viewticket"> شاهد التذكرة </string>
+    <string name="nearstbranch">  أقرب الفروع </string>
+    <string name="department">  اختر القسم: </string>
+    <string name="branch"> اختر الفرع: </string>
+    <string name="ticketnumber">رقم التذكرة : </string>
+
+    <string name="turnnumber">رقم الدور: </string>
+    <string name="counternumber">العميل الحالي: </string>
+    <string name="waitingtime"> وقت الانتظار : </string>
+    <string name="branchlocation">موقع الفرع : </string>
+    <string name="chosendepartment">قسم : </string>
+
+    <string name="passwords_not_match">كلمات المرور غير متطابقة</string>
+    <string name="failedadduser">فشلت إضافة المستخدم</string>
+    <string name="useradded">تمت إضافة المستخدم بنجاح</string>
+    <string name="missingfields">حقول مفقودة</string>
+    <string name="wrongfields">بريد إلكتروني أو كلمة مرور خاطئة</string>
+    <string name="emailsent">تم إرسال رسالة للبريد الاكتروني</string>
+
+    <string name="neareastbranch">أقرب فرع</string>
+    <string name="dokki">الدقي</string>
+    <string name="maadi">المعادي</string>
+    <string name="helwan">حلوان</string>
+
+    <string name="customerservice">خدمة العملاء</string>
+    <string name="teller">أمين الصندوق</string>
+    <string name="reception">استقبال</string>
+
+    <string name="settings">إعدادات</string>
+    <string name="taketurn">احجز دورا</string>
+
+    <string name="failedlocation">فشل الحصول على الموقع</string>
+    <string name="acceptpermission">اقبل الإذن حتى تحصل على أقرب فرع</string>
+
+    <string name="ticketadded">Tتمت إضافة التذكرة بنجاح</string>
+    <string name="alreadyhaveticket">لديك تذكرة بالفعل</string>
+    <string name="thanks">نشكرك على استخدام تطبيق تذكرة البنك خاصتنا</string>
+
+    <string name="alerttitle">تحذير!</string>
+    <string name="alertmessage">إذا غادرت الآن فسوف تطلب تذكرة جديدة</string>
+    <string name="proceed">متابعة</string>
+    <string name="cancel">إلغاء</string>
+    <string name="home">الرئيسية</string>
+    <string name="ticket">تذكرة</string>
+
+    <string name="close_app">سيتم إعادة تشغيل التطبيق لتغيير اللغة</string>
+    <string name="finish">إنهاء</string>
+
+</resources>

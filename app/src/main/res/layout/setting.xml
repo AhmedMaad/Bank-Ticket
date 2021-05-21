@@ -1,67 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Language">
-
-
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".Settings">
 
     <Button
-        android:id="@+id/changelang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/Changelanguage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/colorwhite"
         android:layout_marginTop="200dp"
-        android:textSize="25sp"
+        android:background="@drawable/ovalbtn"
+        android:onClick="openChangeLanguage"
         android:paddingStart="30dp"
+        android:paddingTop="10dp"
         android:paddingEnd="30dp"
         android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:background="@drawable/ovalbtn"
+        android:text="@string/Changelanguage"
+        android:textColor="@color/colorwhite"
+        android:textSize="25sp" />
 
-
-
-        />
     <Button
-        android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/changelang"
-        android:text="@string/logout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/colorwhite"
         android:layout_marginTop="50dp"
-        android:textSize="25sp"
+        android:background="@drawable/ovalbtn"
+        android:onClick="logout"
         android:paddingStart="38dp"
+        android:paddingTop="10dp"
         android:paddingEnd="38dp"
         android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:background="@drawable/ovalbtn"
-
-
-        />
+        android:text="@string/logout"
+        android:textColor="@color/colorwhite"
+        android:textSize="25sp" />
 
 
     <TextView
-        android:id="@+id/newuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:onClick="back"
         android:text="@string/back"
         android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logout"
+        android:textSize="20sp" />
 
-
-        />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

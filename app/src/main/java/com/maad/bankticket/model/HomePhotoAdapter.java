@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.maad.bankticket.Language;
+import com.maad.bankticket.Settings;
 import com.maad.bankticket.NearestBranch;
 import com.maad.bankticket.R;
 import com.maad.bankticket.TakeTurn;
@@ -61,7 +61,7 @@ public class HomePhotoAdapter
                         activity.startActivity(i2);
                         break;
                     case 3:
-                        Intent i3 = new Intent(activity, Language.class);
+                        Intent i3 = new Intent(activity, Settings.class);
                         activity.startActivity(i3);
                         break;
                 }

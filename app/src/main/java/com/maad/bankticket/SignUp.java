@@ -18,7 +18,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class SignUp extends AppCompatActivity {
+public class SignUp extends ParentActivity {
 
     private EditText fname;
     private EditText lname;
@@ -38,6 +38,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        setTitle(R.string.signup);
 
         //Making instance from firebase
         auth = FirebaseAuth.getInstance();

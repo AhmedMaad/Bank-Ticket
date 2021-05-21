@@ -36,13 +36,16 @@
             android:hint="@string/Email" />
 
         <EditText
+            android:textAlignment="viewStart"
             android:id="@+id/password"
             style="@style/signup"
+            android:gravity="start"
             android:hint="@string/password"
             android:inputType="textPassword" />
 
 
         <EditText
+            android:textAlignment="viewStart"
             android:id="@+id/confirmpassword"
             style="@style/signup"
             android:hint="@string/confirmpass"

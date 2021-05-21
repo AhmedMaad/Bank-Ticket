@@ -16,48 +16,42 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/eng"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/Language"
-        android:text="@string/englang"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/colorwhite"
         android:layout_marginTop="50dp"
-        android:textSize="25sp"
+        android:background="@drawable/ovalbtn"
+        android:onClick="English"
         android:paddingStart="30dp"
+        android:paddingTop="10dp"
         android:paddingEnd="30dp"
         android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:background="@drawable/ovalbtn"
+        android:text="@string/englang"
+        android:textColor="@color/colorwhite"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Language" />
 
-
-
-        />
     <Button
         android:id="@+id/login2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/eng"
-        android:text="@string/arblang"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/colorwhite"
         android:layout_marginTop="50dp"
-        android:textSize="25sp"
+        android:background="@drawable/ovalbtn"
+        android:onClick="Arabic"
         android:paddingStart="38dp"
+        android:paddingTop="10dp"
         android:paddingEnd="38dp"
         android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:background="@drawable/ovalbtn"
-
-
-        />
+        android:text="@string/arblang"
+        android:textColor="@color/colorwhite"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eng" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

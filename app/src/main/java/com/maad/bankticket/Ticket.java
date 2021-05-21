@@ -1,20 +1,30 @@
 package com.maad.bankticket;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
-public class Ticket extends AppCompatActivity {
+import java.util.List;
+
+public class Ticket extends ParentActivity {
 
     private FirebaseFirestore db;
     private TextView ticketnumber;
@@ -29,6 +39,7 @@ public class Ticket extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket);
+        setTitle(R.string.ticket);
 
         db = FirebaseFirestore.getInstance();
 
@@ -56,10 +67,57 @@ public class Ticket extends AppCompatActivity {
                             ticketnumber.setText(convertTicketNumberToStringFormat(ticket.getTicketNumber()));
                             turnnumber.setText(String.valueOf(ticket.getTurn()));
                             counternumber.setText(String.valueOf(ticket.getCounterNumber()));
-                            waitingtime.setText(String.valueOf(ticket.getWaitTime()));
                             branch.setText(ticket.getBranch());
                             department.setText(ticket.getDepartment());
+                            startTimer(ticket.getWaitTime() * 60);
                         }
+                    }
+                });
+
+    }
+
+    private void startTimer(long timeInSeconds) {
+
+        //First user has no wait time so no  need for a timer
+        if (timeInSeconds != 0) {
+            new CountDownTimer(timeInSeconds, 1000) {
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    waitingtime.setText(String.valueOf(millisUntilFinished / 1000));
+                    if (millisUntilFinished <= 60000)
+                        waitingtime.setTextColor(getResources().getColor(R.color.red));
+                }
+
+                @Override
+                public void onFinish() {
+                    deleteTicket();
+                }
+
+            }.start();
+        }
+
+    }
+
+    private void deleteTicket() {
+        db
+                .collection("tickets")
+                .document(Helper.USER_ID)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Ticket.this);
+                        builder
+                                .setMessage(R.string.thanks)
+                                .setPositiveButton(R.string.finish, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        deleteTicket();
+                                    }
+                                })
+                                .setCancelable(false)
+                                .show();
                     }
                 });
     }
@@ -73,7 +131,26 @@ public class Ticket extends AppCompatActivity {
             return String.valueOf(ticketNumber);
     }
 
-    public void back(View view) {
-        onBackPressed();
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder
+                .setTitle(R.string.alerttitle)
+                .setMessage(R.string.alertmessage)
+                .setPositiveButton(R.string.proceed, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteTicket();
+                    }
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .setCancelable(false)
+                .show();
     }
+
 }

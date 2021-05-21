@@ -25,7 +25,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NearestBranch extends AppCompatActivity {
+public class NearestBranch extends ParentActivity {
 
     private ArrayList<Branch> branches = new ArrayList<>();
     private FusedLocationProviderClient fusedLocationClient;
@@ -37,6 +37,7 @@ public class NearestBranch extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nearest_branch);
+        setTitle(R.string.neareastbranch);
 
         branchnamebtn = findViewById(R.id.branchnamebtn);
 

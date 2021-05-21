@@ -13,7 +13,7 @@ import com.maad.bankticket.model.HomePhotoAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Home extends AppCompatActivity {
+public class Home extends ParentActivity {
 
     TextView title;
     ImageView image;
@@ -25,6 +25,8 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        setTitle(R.string.home);
+
         title = findViewById(R.id.title);
         image = findViewById(R.id.image);
         recyclerView = findViewById(R.id.recycle_view);

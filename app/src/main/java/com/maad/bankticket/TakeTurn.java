@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -23,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class TakeTurn extends AppCompatActivity {
+public class TakeTurn extends ParentActivity {
 
     private String chosenDepartment;
     private String chosenBranch;
@@ -37,6 +38,7 @@ public class TakeTurn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_take_turn);
+        setTitle(R.string.taketurn);
 
         db = FirebaseFirestore.getInstance();
 
@@ -82,21 +84,27 @@ public class TakeTurn extends AppCompatActivity {
             }
         });
 
+        //Prevent the user from taking another turn if he has an existing ticket
+        db
+                .collection("tickets")
+                .document(Helper.USER_ID)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            Toast.makeText(TakeTurn.this, R.string.alreadyhaveticket, Toast.LENGTH_SHORT).show();
+                            openTicketDetails();
+                        } else
+                            enterbtn.setVisibility(View.VISIBLE);
+                    }
+                });
+
     }
 
     public void takeTurn(View view) {
         enterbtn.setVisibility(View.GONE);
         progress.setVisibility(View.VISIBLE);
-        //chosen branch --> Done
-        //chosen department --> Done
-        //ticket number "read from firebase then increment ticket number by one (Format: 035)" --> Done
-        //upload incremented ticket number to firebase --> Done
-        //your turn after X customers "read from firebase how many document tickets" --> Done
-        //estimated wait time "number of documents * 5 min" --> Done
-        //counter number "ticket number - turn"
-
-        //TODO: you might want to add the ticket document id to it self
-
         getLastTicketNumber();
     }
 
@@ -173,17 +181,15 @@ public class TakeTurn extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         Toast.makeText(TakeTurn.this, R.string.ticketadded
                                 , Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(TakeTurn.this, Ticket.class);
-                        startActivity(i);
                         finish();
                     }
                 });
     }
 
+    private void openTicketDetails() {
+        Intent i = new Intent(TakeTurn.this, Ticket.class);
+        startActivity(i);
+        finish();
+    }
+
 }
-
-//Admin application will read oldest document, and all tickets will update their data
-//depending on that old document...
-
-//(optional) user cannot add another ticket while there is a document with his ticket
-//Add the user id to the ticket document

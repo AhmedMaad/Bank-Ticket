@@ -46,7 +46,9 @@
         android:paddingBottom="10dp"
         android:text="@string/enter"
         android:textColor="@color/colorwhite"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:visibility="invisible"
+        tools:visibility="visible" />
 
     <ProgressBar
         android:id="@+id/progress"

@@ -11,29 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ParentActivity"/>
         <activity
-            android:name=".NearestBranch"
-            android:label="@string/neareastbranch" />
+            android:name=".Language"/>
         <activity
-            android:name=".Ticket"
-            android:label="Ticket" />
+            android:name=".NearestBranch"/>
         <activity
-            android:name=".TakeTurn"
-            android:label="Take Turn" />
+            android:name=".Ticket"/>
         <activity
-            android:name=".Home"
-            android:label="Home" />
+            android:name=".TakeTurn" />
         <activity
-            android:name=".Language"
-            android:label="@string/selectlang" />
-        <activity android:name=".ForgetPassword" />
+            android:name=".Home" />
         <activity
-            android:name=".SignUp"
-            android:label="@string/signup" />
+            android:name=".Settings" />
         <activity
-            android:name=".Splash"
-            android:label="@string/login" />
-        <activity android:name=".Login">
+            android:name=".ForgetPassword" />
+        <activity
+            android:name=".SignUp" />
+        <activity
+            android:name=".Login" />
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
