@@ -1,6 +1,7 @@
 package com.maad.bankticket;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,7 +12,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class TakeTurn extends AppCompatActivity {
@@ -20,11 +27,18 @@ public class TakeTurn extends AppCompatActivity {
     private String chosenBranch;
     private Button enterbtn;
     private ProgressBar progress;
+    private int ticketNumber;
+    private FirebaseFirestore db;
+    private int turnNumber;
+    private int waitTime;
+    private int counterNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_take_turn);
+
+        db = FirebaseFirestore.getInstance();
 
         enterbtn = findViewById(R.id.enterbtn);
         progress = findViewById(R.id.progress);
@@ -75,13 +89,73 @@ public class TakeTurn extends AppCompatActivity {
         progress.setVisibility(View.VISIBLE);
         //chosen branch --> Done
         //chosen department --> Done
-        //ticket number "read from firebase then increment counter by one (Format: 035)"
-        //your turn after X customers "read from firebase how many document tickets"
-        //estimated wait time "number of documents * 5 min"
+        //ticket number "read from firebase then increment ticket number by one (Format: 035)" --> Done
+        //upload incremented ticket number to firebase --> Done
+        //your turn after X customers "read from firebase how many document tickets" --> Done
+        //estimated wait time "number of documents * 5 min" --> Done
         //counter number "ticket number - turn"
 
-        /*TicketModel ticket = new TicketModel(chosenBranch, chosenDepartment);
+        //TODO: you might want to add the ticket document id to it self
 
+        getLastTicketNumber();
+    }
+
+    private void getLastTicketNumber() {
+        db
+                .collection("ticketNumber")
+                .document("ticketNumber")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        String lastTicketNumberString = documentSnapshot.getString("ticket");
+                        ticketNumber = Integer.parseInt(lastTicketNumberString);
+                        ++ticketNumber;
+                        Log.d("trace", "New Ticket number: " + ticketNumber);
+                        uploadNewTicketNumber();
+                    }
+                });
+
+    }
+
+    private void uploadNewTicketNumber() {
+        Map<String, String> map = new HashMap<>();
+        map.put("ticket", String.valueOf(ticketNumber));
+        db
+                .collection("ticketNumber")
+                .document("ticketNumber")
+                .set(map)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d("trace", "Ticket number updated");
+                        readNumberOfDocumentTickets();
+                    }
+                });
+
+    }
+
+    private void readNumberOfDocumentTickets() {
+        db.collection("tickets")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        turnNumber = queryDocumentSnapshots.getDocuments().size();
+                        Log.d("trace", "Turn number after: " + turnNumber);
+                    }
+                });
+    }
+
+    private void registerNewTicket(){
+
+
+/*
+        waitTime = turnNumber * 5;
+        counterNumber = ticketNumber - turnNumber;
+        TicketModel ticket =
+                new TicketModel(chosenBranch, chosenDepartment, ticketNumber
+                        , turnNumber, waitTime, counterNumber);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         // Add a new document with a generated ID
@@ -98,12 +172,12 @@ public class TakeTurn extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                         Log.w(TAG, "Error adding document", e);
                     }
-                });*/
-        //TODO: you might want to add the ticket document id to it self
+                });
+*/
     }
-
 
 }
 
 //Admin application will read oldest document, and all tickets will update their data from
 //firebase admin app
+
