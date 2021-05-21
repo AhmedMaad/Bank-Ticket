@@ -14,14 +14,14 @@
         android:layout_marginTop="20dp"
         android:text="@string/ticketnumber"
         android:textColor="@color/colorwhite"
-        android:textSize="28sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/ticketnumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorwhite"
-        android:textSize="35sp"
+        android:textSize="32sp"
         tools:text="005" />
 
     <TextView
@@ -30,14 +30,14 @@
         android:layout_marginTop="8dp"
         android:text="@string/turnnumber"
         android:textColor="@color/colorwhite"
-        android:textSize="28sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/turnnumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorwhite"
-        android:textSize="35sp"
+        android:textSize="32sp"
         tools:text="4" />
 
     <TextView
@@ -46,14 +46,14 @@
         android:layout_marginTop="8dp"
         android:text="@string/counternumber"
         android:textColor="@color/colorwhite"
-        android:textSize="28sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/counternumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorwhite"
-        android:textSize="35sp"
+        android:textSize="32sp"
         tools:text="1" />
 
     <TextView
@@ -63,14 +63,14 @@
         android:layout_marginTop="8dp"
         android:text="@string/waitingtime"
         android:textColor="@color/colorwhite"
-        android:textSize="28sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/waitingtime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorwhite"
-        android:textSize="35sp"
+        android:textSize="32sp"
         tools:text="05:23" />
 
     <TextView
@@ -79,19 +79,19 @@
         android:layout_marginTop="8dp"
         android:text="@string/chosendepartment"
         android:textColor="@color/colorwhite"
-        android:textSize="28sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/department"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorwhite"
-        android:textSize="35sp"
+        android:textSize="32sp"
         tools:text="X" />
 
     <ImageView
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/location" />
 
@@ -100,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorwhite"
-        android:textSize="35sp"
+        android:textSize="32sp"
         tools:text="Helwan" />
 
 </LinearLayout>

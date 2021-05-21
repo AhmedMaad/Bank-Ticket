@@ -57,7 +57,7 @@
     <string name="failedlocation">فشل الحصول على الموقع</string>
     <string name="acceptpermission">اقبل الإذن حتى تحصل على أقرب فرع</string>
 
-    <string name="ticketadded">Tتمت إضافة التذكرة بنجاح</string>
+    <string name="ticketadded">تمت إضافة التذكرة بنجاح</string>
     <string name="alreadyhaveticket">لديك تذكرة بالفعل</string>
     <string name="thanks">نشكرك على استخدام تطبيق تذكرة البنك خاصتنا</string>
 

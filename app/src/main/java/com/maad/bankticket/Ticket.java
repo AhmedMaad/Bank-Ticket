@@ -69,7 +69,7 @@ public class Ticket extends ParentActivity {
                             counternumber.setText(String.valueOf(ticket.getCounterNumber()));
                             branch.setText(ticket.getBranch());
                             department.setText(ticket.getDepartment());
-                            startTimer(ticket.getWaitTime() * 60);
+                            startTimer(ticket.getWaitTime() * 60 * 1000);
                         }
                     }
                 });
