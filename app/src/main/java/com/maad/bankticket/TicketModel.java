@@ -8,16 +8,19 @@ public class TicketModel {
     private int turn;
     private int waitTime;
     private int counterNumber;
+    private String requestTime;
 
     public TicketModel(){}
 
-    public TicketModel(String branch, String department, int ticketNumber, int turn, int waitTime, int counterNumber) {
+    public TicketModel(String branch, String department, int ticketNumber, int turn
+            , int waitTime, int counterNumber, String requestTime) {
         this.branch = branch;
         this.department = department;
         this.ticketNumber = ticketNumber;
         this.turn = turn;
         this.waitTime = waitTime;
         this.counterNumber = counterNumber;
+        this.requestTime = requestTime;
     }
 
     public String getBranch() {
@@ -44,4 +47,7 @@ public class TicketModel {
         return counterNumber;
     }
 
+    public String getRequestTime() {
+        return requestTime;
+    }
 }

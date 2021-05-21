@@ -20,6 +20,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -166,9 +167,16 @@ public class TakeTurn extends ParentActivity {
     private void registerNewTicket() {
         int waitTime = turnNumber * 5;
         int counterNumber = ticketNumber - turnNumber;
+
+        Calendar now = Calendar.getInstance();
+        int hour = now.get(Calendar.HOUR_OF_DAY);
+        int minute = now.get(Calendar.MINUTE);
+        int second = now.get(Calendar.SECOND);
+        String requestTime = hour + ":" + minute + ":" + second;
+
         TicketModel ticket =
                 new TicketModel(chosenBranch, chosenDepartment, ticketNumber
-                        , turnNumber, waitTime, counterNumber);
+                        , turnNumber, waitTime, counterNumber, requestTime);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         // Add a new document with a generated ID
