@@ -33,7 +33,6 @@ public class NearestBranch extends AppCompatActivity {
     private double lat;
     private double lon;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +45,13 @@ public class NearestBranch extends AppCompatActivity {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED)
             getLocation();
-        else
-            requestPermission();
+        else {
+            //Requesting runtime permission starting from Android Marshmallow
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}
+                        , 101);
+        }
+
     }
 
     @Override
@@ -83,19 +87,10 @@ public class NearestBranch extends AppCompatActivity {
                 });
     }
 
-    //Requesting runtime permission starting from Android Marshmallow
-    private void requestPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}
-                    , 101);
-        }
-    }
-
     private void showNearestPlace(Location currentLocation) {
         branches.add(new Branch(29.9602, 31.2569, getString(R.string.maadi)));
         branches.add(new Branch(30.0395, 31.2025, getString(R.string.dokki)));
         branches.add(new Branch(29.8403, 31.2982, getString(R.string.helwan)));
-
 
         //Suppose that the first branch will be displayed
         String name = branches.get(0).getName();
@@ -130,7 +125,6 @@ public class NearestBranch extends AppCompatActivity {
     }
 
     public void goToBranch(View view) {
-        //Uri locationUri = Uri.parse("geo:" + lat + ',' + lon);
         Uri locationUri = Uri.parse("google.navigation:q=" + lat + ',' + lon);
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, locationUri);
         mapIntent.setPackage("com.google.android.apps.maps");
