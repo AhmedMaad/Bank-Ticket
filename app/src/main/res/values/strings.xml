@@ -61,15 +61,14 @@
     <string name="alreadyhaveticket">You already have a ticket</string>
     <string name="thanks">Thanks for using our Bank Ticket App</string>
 
-    <string name="alerttitle">Warning!</string>
-    <string name="alertmessage">If you leave now you will to request a new ticket</string>
     <string name="proceed">proceed</string>
-    <string name="cancel">cancel</string>
     <string name="home">Home</string>
     <string name="ticket">Ticket</string>
 
     <string name="close_app">Application will restart to change language</string>
     <string name="finish">Finish</string>
     <string name="turnpassed">Your turn has passed, make a new ticket</string>
+    <string name="customernumber">Customer Number: </string>
+    <string name="yourturn">It is your Turn</string>
 
 </resources>

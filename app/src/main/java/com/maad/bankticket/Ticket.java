@@ -4,8 +4,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -41,6 +45,7 @@ public class Ticket extends ParentActivity {
     private TextView department;
     private TicketModel ticket;
     private String requestTime;
+    private int waitTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +80,8 @@ public class Ticket extends ParentActivity {
                             branch.setText(ticket.getBranch());
                             department.setText(ticket.getDepartment());
                             requestTime = ticket.getRequestTime();
-                            //startTimer(ticket.getWaitTime() * 60 * 1000);
-                            calculateActualWaitTime(ticket.getWaitTime());
+                            waitTime = ticket.getWaitTime();
+                            calculateActualWaitTime(waitTime);
                         }
                     }
                 });
@@ -150,9 +155,18 @@ public class Ticket extends ParentActivity {
 
             @Override
             public void onFinish() {
-                //tell the user that this is his turn and wait 5 seconds then delete the ticket
-                //deleteTicket();
                 Log.d("trace", "Time counter finished");
+                //tell the user that this is his turn and wait 5 seconds then delete the ticket
+                LinearLayout parent = findViewById(R.id.parent);
+                Snackbar
+                        .make(parent, R.string.yourturn, BaseTransientBottomBar.LENGTH_INDEFINITE)
+                        .show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        deleteTicket();
+                    }
+                }, 3000);
             }
 
         }.start();
@@ -161,7 +175,6 @@ public class Ticket extends ParentActivity {
             tv.setVisibility(View.GONE);
             waitingtime.setVisibility(View.GONE);
         }*/
-
 
     }
 
@@ -175,6 +188,7 @@ public class Ticket extends ParentActivity {
                     public void onSuccess(Void unused) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(Ticket.this);
                         builder
+                                .setTitle(getString(R.string.customernumber) + ticketnumber.getText())
                                 .setMessage(R.string.thanks)
                                 .setPositiveButton(R.string.finish, new DialogInterface.OnClickListener() {
                                     @Override
@@ -197,27 +211,8 @@ public class Ticket extends ParentActivity {
             return String.valueOf(ticketNumber);
     }
 
-    //TODO: This should be deleted as the time is now calculated based on the request time.
-    /*@Override
+    @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder
-                .setTitle(R.string.alerttitle)
-                .setMessage(R.string.alertmessage)
-                .setPositiveButton(R.string.proceed, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        deleteTicket();
-                    }
-                })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .setCancelable(false)
-                .show();
-    }*/
+    }
 
 }

@@ -87,7 +87,7 @@ public class TakeTurn extends ParentActivity {
         });
 
         //TODO: DELETE THIS LINE
-        Helper.USER_ID = "7dYryy0KZ2aqjekFZvBrF2qLJSs2";
+        /*Helper.USER_ID = "7dYryy0KZ2aqjekFZvBrF2qLJSs2";*/
 
         //Prevent the user from taking another turn if he has an existing ticket
         db
@@ -178,6 +178,8 @@ public class TakeTurn extends ParentActivity {
         int minute = now.get(Calendar.MINUTE);
         String requestTime = hour + ":" + minute;
 
+        if (waitTime == 0)
+            waitTime = 1;
         TicketModel ticket =
                 new TicketModel(chosenBranch, chosenDepartment, ticketNumber
                         , turnNumber, waitTime, counterNumber, requestTime);

@@ -61,15 +61,14 @@
     <string name="alreadyhaveticket">لديك تذكرة بالفعل</string>
     <string name="thanks">نشكرك على استخدام تطبيق تذكرة البنك خاصتنا</string>
 
-    <string name="alerttitle">تحذير!</string>
-    <string name="alertmessage">إذا غادرت الآن فسوف تطلب تذكرة جديدة</string>
     <string name="proceed">متابعة</string>
-    <string name="cancel">إلغاء</string>
     <string name="home">الرئيسية</string>
     <string name="ticket">تذكرة</string>
 
     <string name="close_app">سيتم إعادة تشغيل التطبيق لتغيير اللغة</string>
     <string name="finish">إنهاء</string>
     <string name="turnpassed">فاتك دورك, احجز تذكرة جديدة</string>
+    <string name="customernumber">عميل رقم: </string>
+    <string name="yourturn">هذا هو دورك</string>
 
 </resources>
