@@ -90,11 +90,13 @@
         android:textSize="32sp"
         tools:text="X" />
 
-    <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:src="@drawable/location" />
+        android:text="@string/branchlocation"
+        android:textColor="@color/colorwhite"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/branch"

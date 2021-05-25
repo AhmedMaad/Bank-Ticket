@@ -179,7 +179,7 @@ public class TakeTurn extends ParentActivity {
         String requestTime = hour + ":" + minute;
 
         if (waitTime == 0)
-            waitTime = 1;
+            waitTime = 15;
         TicketModel ticket =
                 new TicketModel(chosenBranch, chosenDepartment, ticketNumber
                         , turnNumber, waitTime, counterNumber, requestTime);
