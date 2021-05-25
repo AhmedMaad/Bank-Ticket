@@ -10,6 +10,18 @@
     <TextView
         style="@style/spineer_text"
         android:layout_marginTop="30dp"
+        android:text="@string/branch" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/oval" />
+
+    <TextView
+        style="@style/spineer_text"
+        android:layout_marginTop="30dp"
         android:text="@string/department" />
 
     <Spinner
@@ -18,18 +30,6 @@
         android:layout_height="50dp"
         android:layout_margin="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/oval" />
-
-    <TextView
-        style="@style/spineer_text"
-        android:layout_marginTop="30dp"
-        android:text="@string/branch" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
         android:background="@drawable/oval" />
 
     <Button
