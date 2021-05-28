@@ -62,8 +62,59 @@ public class Ticket extends ParentActivity {
         branch = findViewById(R.id.branch);
         department = findViewById(R.id.department);
 
+        searchInHelwanTickets();
+    }
 
-        db.collection("tickets")
+    private void searchInHelwanTickets() {
+        db.collection("HelwanTickets")
+                .document(Helper.USER_ID)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (!documentSnapshot.exists()) {
+                            searchInMaadiTickets();
+                        } else {
+                            ticket = documentSnapshot.toObject(TicketModel.class);
+                            ticketnumber.setText(convertTicketNumberToStringFormat(ticket.getTicketNumber()));
+                            turnnumber.setText(String.valueOf(ticket.getTurn()));
+                            counternumber.setText(String.valueOf(ticket.getCounterNumber()));
+                            branch.setText(ticket.getBranch());
+                            department.setText(ticket.getDepartment());
+                            requestTime = ticket.getRequestTime();
+                            waitTime = ticket.getWaitTime();
+                            calculateActualWaitTime(waitTime);
+                        }
+                    }
+                });
+    }
+
+    private void searchInMaadiTickets() {
+        db.collection("MaadiTickets")
+                .document(Helper.USER_ID)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (!documentSnapshot.exists()) {
+                            searchInDokkiTickets();
+                        } else {
+                            ticket = documentSnapshot.toObject(TicketModel.class);
+                            ticketnumber.setText(convertTicketNumberToStringFormat(ticket.getTicketNumber()));
+                            turnnumber.setText(String.valueOf(ticket.getTurn()));
+                            counternumber.setText(String.valueOf(ticket.getCounterNumber()));
+                            branch.setText(ticket.getBranch());
+                            department.setText(ticket.getDepartment());
+                            requestTime = ticket.getRequestTime();
+                            waitTime = ticket.getWaitTime();
+                            calculateActualWaitTime(waitTime);
+                        }
+                    }
+                });
+    }
+
+    private void searchInDokkiTickets() {
+        db.collection("DokkiTickets")
                 .document(Helper.USER_ID)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -85,7 +136,6 @@ public class Ticket extends ParentActivity {
                         }
                     }
                 });
-
     }
 
     private void openTakeTurnActivity() {
@@ -170,17 +220,19 @@ public class Ticket extends ParentActivity {
             }
 
         }.start();
-         /*else {
-            TextView tv = findViewById(R.id.wait);
-            tv.setVisibility(View.GONE);
-            waitingtime.setVisibility(View.GONE);
-        }*/
-
     }
 
     private void deleteTicket() {
         db
-                .collection("tickets")
+                .collection("HelwanTickets")
+                .document(Helper.USER_ID)
+                .delete();
+        db
+                .collection("MaadiTickets")
+                .document(Helper.USER_ID)
+                .delete();
+        db
+                .collection("DokkiTickets")
                 .document(Helper.USER_ID)
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -200,6 +252,7 @@ public class Ticket extends ParentActivity {
                                 .show();
                     }
                 });
+
     }
 
     private String convertTicketNumberToStringFormat(int ticketNumber) {

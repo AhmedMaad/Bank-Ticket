@@ -25,7 +25,6 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class TakeTurn extends ParentActivity {
 
     private String chosenDepartment;
@@ -86,12 +85,47 @@ public class TakeTurn extends ParentActivity {
             }
         });
 
-        //TODO: DELETE THIS LINE
-        /*Helper.USER_ID = "7dYryy0KZ2aqjekFZvBrF2qLJSs2";*/
-
         //Prevent the user from taking another turn if he has an existing ticket
+        searchHelwan();
+    }
+
+    private void searchHelwan(){
         db
-                .collection("tickets")
+                .collection("HelwanTickets")
+                .document(Helper.USER_ID)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            Toast.makeText(TakeTurn.this, R.string.alreadyhaveticket, Toast.LENGTH_SHORT).show();
+                            openTicketDetails();
+                        } else
+                            searchMaadi();
+                    }
+                });
+    }
+
+    private void searchMaadi(){
+        db
+                .collection("MaadiTickets")
+                .document(Helper.USER_ID)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            Toast.makeText(TakeTurn.this, R.string.alreadyhaveticket, Toast.LENGTH_SHORT).show();
+                            openTicketDetails();
+                        } else
+                            searchDokki();
+                    }
+                });
+    }
+
+    private void searchDokki(){
+        db
+                .collection("DokkiTickets")
                 .document(Helper.USER_ID)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -104,7 +138,6 @@ public class TakeTurn extends ParentActivity {
                             enterbtn.setVisibility(View.VISIBLE);
                     }
                 });
-
     }
 
     public void takeTurn(View view) {
@@ -121,55 +154,74 @@ public class TakeTurn extends ParentActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        String lastTicketNumberString = documentSnapshot.getString("ticket");
-                        ticketNumber = Integer.parseInt(lastTicketNumberString);
-                        ++ticketNumber;
-                        Log.d("trace", "New Ticket number: " + ticketNumber);
-                        uploadNewTicketNumber();
+                        String lastTicketNumberString;
+                        if (chosenBranch.equals(getString(R.string.helwan))) {
+                            //get number of tickets from helwan
+                            lastTicketNumberString = documentSnapshot.getString("HelwanTickets");
+                            ticketNumber = Integer.parseInt(lastTicketNumberString);
+                            ++ticketNumber;
+                            Log.d("trace", "New (Helwan) Ticket number: " + ticketNumber);
+                            uploadNewTicketNumber("HelwanTickets");
+                        } else if (chosenBranch.equals(getString(R.string.maadi))) {
+                            //get number of tickets from maadi
+                            lastTicketNumberString = documentSnapshot.getString("MaadiTickets");
+                            ticketNumber = Integer.parseInt(lastTicketNumberString);
+                            ++ticketNumber;
+                            Log.d("trace", "New (Maadi) Ticket number: " + ticketNumber);
+                            uploadNewTicketNumber("MaadiTickets");
+                        } else {
+                            //get number of tickets from dokki
+                            lastTicketNumberString = documentSnapshot.getString("DokkiTickets");
+                            ticketNumber = Integer.parseInt(lastTicketNumberString);
+                            ++ticketNumber;
+                            Log.d("trace", "New (Dokki) Ticket number: " + ticketNumber);
+                            uploadNewTicketNumber("DokkiTickets");
+                        }
+
                     }
                 });
 
     }
 
-    private void uploadNewTicketNumber() {
-        Map<String, String> map = new HashMap<>();
-
+    private void uploadNewTicketNumber(String fieldName) {
+       // Map<String, String> map = new HashMap<>();
+        String number;
         if (ticketNumber < 10)
-            map.put("ticket", "00" + ticketNumber);
+            number = "00" + ticketNumber;
         else if (ticketNumber <= 99)
-            map.put("ticket", "0" + ticketNumber);
+            number = "0" + ticketNumber;
         else
-            map.put("ticket", String.valueOf(ticketNumber));
+            number = String.valueOf(ticketNumber);
 
         db
                 .collection("ticketNumber")
                 .document("ticketNumber")
-                .set(map)
+                .update(fieldName, number)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         Log.d("trace", "Ticket number updated");
-                        readNumberOfDocumentTickets();
+                        readNumberOfDocumentTickets(fieldName);
                     }
                 });
 
     }
 
-    private void readNumberOfDocumentTickets() {
-        db.collection("tickets")
+    private void readNumberOfDocumentTickets(String collectionName) {
+        db.collection(collectionName)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         turnNumber = queryDocumentSnapshots.getDocuments().size();
                         Log.d("trace", "Turn number after: " + turnNumber);
-                        registerNewTicket();
+                        registerNewTicket(collectionName);
                     }
                 });
     }
 
-    private void registerNewTicket() {
-        int waitTime = turnNumber * 5;
+    private void registerNewTicket(String collectionName) {
+        int waitTime = turnNumber * 6;
         int counterNumber = ticketNumber - turnNumber;
 
         //Add time of request (e.g. 20:15)
@@ -179,7 +231,7 @@ public class TakeTurn extends ParentActivity {
         String requestTime = hour + ":" + minute;
 
         if (waitTime == 0)
-            waitTime = 15;
+            waitTime = 2;
         TicketModel ticket =
                 new TicketModel(chosenBranch, chosenDepartment, ticketNumber
                         , turnNumber, waitTime, counterNumber, requestTime);
@@ -187,7 +239,7 @@ public class TakeTurn extends ParentActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         // Add a new document with a generated ID
         db
-                .collection("tickets")
+                .collection(collectionName)
                 .document(Helper.USER_ID)
                 .set(ticket)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
