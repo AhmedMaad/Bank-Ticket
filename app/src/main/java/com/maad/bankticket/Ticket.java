@@ -179,8 +179,7 @@ public class Ticket extends ParentActivity {
             if (difference < 0) {
                 Log.d("trace", "Time passed (invalid ticket)");
                 //We should delete the ticket at this point
-                Toast.makeText(this, R.string.turnpassed, Toast.LENGTH_SHORT).show();
-                openTakeTurnActivity();
+                deleteTicket2();
             } else {
                 Log.d("trace", "Show waiting time counter with diff: " + difference);
                 startTimer(difference);
@@ -193,7 +192,6 @@ public class Ticket extends ParentActivity {
 
     private void startTimer(long timeInSeconds) {
 
-        //First user has no wait time so no  need for a timer
         new CountDownTimer(timeInSeconds, 1000) {
 
             @Override
@@ -252,6 +250,29 @@ public class Ticket extends ParentActivity {
                                 })
                                 .setCancelable(false)
                                 .show();
+                    }
+                });
+
+    }
+
+    private void deleteTicket2() {
+        db
+                .collection("HelwanTickets")
+                .document(Helper.USER_ID)
+                .delete();
+        db
+                .collection("MaadiTickets")
+                .document(Helper.USER_ID)
+                .delete();
+        db
+                .collection("DokkiTickets")
+                .document(Helper.USER_ID)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(Ticket.this, R.string.turnpassed, Toast.LENGTH_SHORT).show();
+                        openTakeTurnActivity();
                     }
                 });
 
