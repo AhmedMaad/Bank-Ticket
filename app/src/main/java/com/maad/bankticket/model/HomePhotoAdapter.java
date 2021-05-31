@@ -57,7 +57,7 @@ public class HomePhotoAdapter
             public void onClick(View v) {
                 switch (position) {
                     case 0:
-                        Calendar now = Calendar.getInstance();
+                        /*Calendar now = Calendar.getInstance();
 
                         int hour = now.get(Calendar.HOUR_OF_DAY); // Get hour in 24 hour format
                         int minute = now.get(Calendar.MINUTE);
@@ -70,10 +70,12 @@ public class HomePhotoAdapter
                             Intent i0 = new Intent(activity, TakeTurn.class);
                             activity.startActivity(i0);
                         } else
-                            Toast.makeText(activity, "Bank is Closed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, "Bank is Closed", Toast.LENGTH_SHORT).show();*/
+                        Intent i0 = new Intent(activity, TakeTurn.class);
+                        activity.startActivity(i0);
                         break;
                     case 1:
-                        Calendar now1 = Calendar.getInstance();
+                        /*Calendar now1 = Calendar.getInstance();
 
                         int hour1 = now1.get(Calendar.HOUR_OF_DAY); // Get hour in 24 hour format
                         int minute1 = now1.get(Calendar.MINUTE);
@@ -86,7 +88,9 @@ public class HomePhotoAdapter
                             Intent i0 = new Intent(activity, Ticket.class);
                             activity.startActivity(i0);
                         } else
-                            Toast.makeText(activity, "Bank is Closed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, "Bank is Closed", Toast.LENGTH_SHORT).show();*/
+                        Intent ii = new Intent(activity, Ticket.class);
+                        activity.startActivity(ii);
                         break;
                     case 2:
                         Intent i2 = new Intent(activity, NearestBranch.class);

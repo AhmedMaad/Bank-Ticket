@@ -198,7 +198,9 @@ public class Ticket extends ParentActivity {
 
             @Override
             public void onTick(long millisUntilFinished) {
-                waitingtime.setText(String.valueOf(millisUntilFinished / 1000));
+                long Mmin = (millisUntilFinished / 1000) / 60;
+                //long Ssec = (millisUntilFinished / 1000) % 60;
+                waitingtime.setText(String.valueOf(Mmin));
                 if (millisUntilFinished <= 60000)
                     waitingtime.setTextColor(getResources().getColor(R.color.red));
             }
