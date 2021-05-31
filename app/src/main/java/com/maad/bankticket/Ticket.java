@@ -264,8 +264,8 @@ public class Ticket extends ParentActivity {
             return String.valueOf(ticketNumber);
     }
 
-    @Override
-    public void onBackPressed() {
+    public void back(View view) {
+        onBackPressed();
     }
 
 }

@@ -28,7 +28,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/turnnumber"
         android:textColor="@color/colorwhite"
         android:textSize="24sp" />
@@ -44,7 +44,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/counternumber"
         android:textColor="@color/colorwhite"
         android:textSize="24sp" />
@@ -61,7 +61,7 @@
         android:id="@+id/wait"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/waitingtime"
         android:textColor="@color/colorwhite"
         android:textSize="24sp" />
@@ -77,7 +77,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/chosendepartment"
         android:textColor="@color/colorwhite"
         android:textSize="24sp" />
@@ -93,7 +93,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/branchlocation"
         android:textColor="@color/colorwhite"
         android:textSize="24sp" />
@@ -105,5 +105,14 @@
         android:textColor="@color/colorwhite"
         android:textSize="32sp"
         tools:text="Helwan" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="back"
+        android:text="@string/back"
+        android:textColor="@color/colorwhite"
+        android:textSize="20sp" />
 
 </LinearLayout>
